@@ -14,6 +14,8 @@ namespace CountErrorAsync
             int Count = await CountOccurence(Files);
             Console.WriteLine("{0} contains : {1}", Files, Count);
 
+            await AsyncClass.DeleteTheFile(Files);
+
         }
 
         public static async Task DeleteTheFile(string Files)

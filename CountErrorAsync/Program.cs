@@ -26,7 +26,7 @@ public class Program
 
 
             await AsyncClass.ReadTheFile(Files);
-            await AsyncClass.DeleteTheFile(Files);
+            //await AsyncClass.DeleteTheFile(Files);
         }
 
         //AsyncClass obj = new AsyncClass();

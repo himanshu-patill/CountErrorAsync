@@ -9,16 +9,16 @@ namespace CountErrorAsync
     internal class AsyncClass
     {
 
-        public static async Task ReadTheFile(string Files)
+        public async Task ReadTheFile(string Files)
         {
             int Count = await CountOccurence(Files);
             Console.WriteLine("{0} contains : {1}", Files, Count);
 
-            await AsyncClass.DeleteTheFile(Files);
+            await DeleteTheFile(Files);
 
         }
 
-        public static async Task DeleteTheFile(string Files)
+        public async Task DeleteTheFile(string Files)
         {
             int Count = await CountOccurence(Files);
             if (Count > 50)
@@ -34,8 +34,11 @@ namespace CountErrorAsync
             }
         }
 
-        public static async Task<int> CountOccurence(string Files)
+        public async Task<int> CountOccurence(string Files)
         {
+            // had to add this in order to get rid of warning.
+            await Task.Delay(100); 
+
             string[] lines = File.ReadAllLines(Files);
             //Console.WriteLine(text);
 

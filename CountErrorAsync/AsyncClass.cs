@@ -14,13 +14,15 @@ namespace CountErrorAsync
             int Count = await CountOccurence(Files);
             Console.WriteLine("{0} contains : {1}", Files, Count);
 
-            await DeleteTheFile(Files);
+            await DeleteTheFile(Files, Count);
 
         }
 
-        public async Task DeleteTheFile(string Files)
+        public async Task DeleteTheFile(string Files, int Count)
         {
-            int Count = await CountOccurence(Files);
+            //int Count = await CountOccurence(Files);
+            await Task.Delay(100); 
+
             if (Count > 50)
             {
                 //Console.WriteLine("*****for {0} got count={1}", Files,Count);
@@ -36,7 +38,6 @@ namespace CountErrorAsync
 
         public async Task<int> CountOccurence(string Files)
         {
-            // had to add this in order to get rid of warning.
             await Task.Delay(100); 
 
             string[] lines = File.ReadAllLines(Files);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,10 @@ namespace CountErrorAsync
 
             //FileStream f = new FileStream(Files, FileMode.Open);
 
+            //***1st Approach***
+            //await Task.Run(() => File.Exists(Files));
 
+            //***2nd Approach***
             try
             {
                 await File.ReadAllTextAsync(Files);

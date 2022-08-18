@@ -21,7 +21,21 @@ namespace CountErrorAsync
         public async Task DeleteTheFile(string Files, int Count)
         {
             //int Count = await CountOccurence(Files);
-            await Task.Delay(100); 
+
+            //await Task.Delay(100); 
+
+            //FileStream f = new FileStream(Files, FileMode.Open);
+
+
+            try
+            {
+                await File.ReadAllTextAsync(Files);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("We are not able to Read file:", Files);
+            }
+            
 
             if (Count > 50)
             {
